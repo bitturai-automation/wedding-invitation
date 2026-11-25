@@ -1,0 +1,15 @@
+/* English / Hindi translations */
+const H={'Wedding Invitation':'विवाह निमंत्रण','Tap the Book to Open':'पुस्तक खोलने के लिए छुएँ','Together with Their Families':'दोनों परिवारों की ओर से','Son of':'सुपुत्र','Daughter of':'सुपुत्री','Mr. Rajeev & Mrs. Seema':'श्री राजीव एवं श्रीमती सीमा','Mr. Santosh & Mrs. Rinky':'श्री संतोष एवं श्रीमती रिंकी',
+'With the blessings of the Almighty and our elders, we joyfully invite you to bless the union of our children and celebrate their new beginning with us.':'ईश्वर और बड़ों के आशीर्वाद से, हम आपको अपने बच्चों के विवाह में सादर आमंत्रित करते हैं। आइए, उन्हें आशीर्वाद दें और उनके नए जीवन की शुरुआत की खुशियाँ हमारे साथ बाँटें।',
+'Save the Date':'तिथि सुरक्षित करें','Thursday':'गुरुवार','25 March':'25 मार्च','Muhurat · 8:00 PM':'मुहूर्त · रात 8:00 बजे','Days':'दिन','Hours':'घंटे','Mins':'मिनट','Secs':'सेकंड','Add to Calendar':'कैलेंडर में जोड़ें','Drag the tassel down':'फुँदना नीचे खींचें',
+'Celebrations':'उत्सव','Wedding Functions':'विवाह समारोह','Swipe or tap the arrows':'स्वाइप करें या तीर दबाएँ','Plan your week':'इस सप्ताह की रूपरेखा','Schedule':'कार्यक्रम सूची','Add all to calendar':'सभी कार्यक्रम कैलेंडर में जोड़ें','Memories':'यादें','Our Story':'हमारी कहानी',
+'Two hearts, one beautiful beginning':'दो दिल, एक सुंदर शुरुआत','Where every glance becomes a promise':'जहाँ हर नज़र एक वादा बन जाती है','Surrounded by love, laughter and blessings':'प्यार, हँसी और आशीर्वाद के बीच','Every celebration is sweeter with family':'परिवार के साथ हर उत्सव और मीठा',
+'You are invited to the':'आप सादर आमंत्रित हैं','Grand':'भव्य','Reception':'स्वागत समारोह','Friday, 26 March 2027':'शुक्रवार, 26 मार्च 2027','7:00 PM Onwards':'शाम 7:00 बजे से','Banquet Hall':'बैंक्वेट हॉल','Sector 4, Bokaro Steel City':'सेक्टर 4, बोकारो स्टील सिटी',
+'Find Us':'हमें खोजें','Wedding Location':'विवाह स्थल','Get Directions':'रास्ता देखें','Copy Address':'पता कॉपी करें','WE CAN’T WAIT TO CELEBRATE WITH YOU!':'आपके साथ खुशियाँ मनाने की प्रतीक्षा में!','Bittu & Aradhya':'बिट्टू और आराध्या','With love, the Sharma and Verma families':'सस्नेह, शर्मा एवं वर्मा परिवार','Watch again':'फिर से देखें'};
+let L='en';try{L=new URLSearchParams(location.search).get('lang')||localStorage.getItem('lang')||'en'}catch(e){}if(L!='hi')L='en';
+function applyLang(){document.documentElement.lang=L;document.title=L=='hi'?'बिट्टू weds आराध्या | विवाह निमंत्रण':'Bittu weds Aradhya | Wedding Invitation';$('#lang').textContent=L=='hi'?'English':'हिन्दी';
+ const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const p=n.parentElement;if(!p||p.closest('script,style,[data-dyn],#toast'))continue;
+ if(!n._en){const k=n.nodeValue.trim();if(!H[k])continue;n._en=n.nodeValue}const k=n._en.trim();n.nodeValue=L=='hi'?n._en.replace(k,H[k]):n._en}
+ if(namesOn){$('#n1').textContent=NAMES[L][0];$('#n2').textContent=NAMES[L][1]}
+ renderF();renderV();if(typeof gtxt=='function')gtxt()}
+$('#lang').onclick=()=>{L=L=='hi'?'en':'hi';try{localStorage.setItem('lang',L)}catch(e){}applyLang()};
